@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://dqnmeudbp6n1y"]
+[gd_scene load_steps=13 format=4 uid="uid://dqnmeudbp6n1y"]
 
 [ext_resource type="PackedScene" uid="uid://ljtwugni1kk3" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://dcgstnu1370ns" path="res://scripts/Player.cs" id="2_yqjtg"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cyk5e45qdv3tp" path="res://scenes/platform.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://bt6wm4f57rx6l" path="res://scenes/coin.tscn" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://bvja0jm4573ol" path="res://scenes/kill_zone.tscn" id="6_p57ef"]
-[ext_resource type="Script" uid="uid://d1qf1qutnacqx" path="res://scripts/KillZone.cs" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("3_lnu2h")
@@ -263,13 +262,7 @@ position = Vector2(45, -40)
 position = Vector2(66, -40)
 
 [node name="KillZone" parent="." instance=ExtResource("6_p57ef")]
-script = ExtResource("7_u5sy4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone"]
 position = Vector2(0, 134)
 shape = SubResource("WorldBoundaryShape2D_u5sy4")
-
-[node name="Timer" type="Timer" parent="KillZone"]
-
-[connection signal="body_entered" from="KillZone" to="KillZone" method="OnBodyEntered"]
-[connection signal="timeout" from="KillZone/Timer" to="KillZone" method="DeathAfterOneSecond"]
