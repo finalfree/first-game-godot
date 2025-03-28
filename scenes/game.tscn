@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dqnmeudbp6n1y"]
+[gd_scene load_steps=11 format=4 uid="uid://dqnmeudbp6n1y"]
 
 [ext_resource type="PackedScene" uid="uid://ljtwugni1kk3" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://dcgstnu1370ns" path="res://scripts/Player.cs" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://bl1qt41vwtrc" path="res://assets/sprites/world_tileset.png" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cyk5e45qdv3tp" path="res://scenes/platform.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bt6wm4f57rx6l" path="res://scenes/coin.tscn" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("3_lnu2h")
@@ -171,6 +172,21 @@ texture = ExtResource("3_lnu2h")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_lbhrr")
 
+[sub_resource type="Animation" id="Animation_iywne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(304, 84)]
+}
+
 [sub_resource type="Animation" id="Animation_lbhrr"]
 resource_name = "move"
 length = 2.0
@@ -186,21 +202,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(304, 84), Vector2(384, 84)]
-}
-
-[sub_resource type="Animation" id="Animation_iywne"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(304, 84)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_p57ef"]
@@ -237,3 +238,21 @@ libraries = {
 &"": SubResource("AnimationLibrary_p57ef")
 }
 autoplay = "move"
+
+[node name="Coin" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(301, 68)
+
+[node name="Coin2" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(328, 68)
+
+[node name="Coin3" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(355, 68)
+
+[node name="Coin4" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(381, 68)
+
+[node name="Coin5" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(45, -40)
+
+[node name="Coin6" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(66, -40)
