@@ -15,7 +15,7 @@ public partial class GameManager : Node
     Label _scoreLabel;
     public override void _Ready()
     {
-        _scoreLabel = GetNode<Label>("CanvasLayer/Label");
+        _scoreLabel = GetNode<Label>("%CanvasLayer/Label");
         _scoreLabel.Text = $"Score: {_score}";
     }
 
